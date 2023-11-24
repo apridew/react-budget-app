@@ -24,15 +24,19 @@ const Currency = () => {
   };
 
   return (
-    <div class="d-inline-flex align-items-center justify-content-between" style={{ height: '80%' }}>
+    <div
+      className="d-inline-flex align-items-center justify-content-between"
+      style={{ height: '80%' }}
+    >
       <Dropdown>
         <Dropdown.Toggle variant="success" className="text-white" style={{ padding: '15px' }}>
           Currency ({currency.symbol} {currency.name})
         </Dropdown.Toggle>
 
         <Dropdown.Menu className="border border-success bg-success text-black" hover>
-          {currencyList.map((currency) => (
+          {currencyList.map((currency, key) => (
             <Dropdown.Item
+              key={key}
               className="text-dark fw-semibold"
               onClick={() => changeCurrency(currency)}
             >
